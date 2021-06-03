@@ -40,8 +40,8 @@ else
 fi
 
 if [[ -z $CURRENT_PHP_VERSION ]]; then
-  # TODO install common extensions for a webserver?
-  yum -y install php-common
+  # TODO install more common packages for a webserver?
+  yum -y install php-common php-cli php-fpm php-opcache php-json php-xml
 elif [[ "$WANTED_PHP_VERSION_DOTLESS" > "$CURRENT_PHP_VERSION_DOTLESS" ]]; then
   # Ensure the latest release, as it might have desired PHP version sub-repo
   yum -y update remi-release
