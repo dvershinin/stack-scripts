@@ -22,7 +22,7 @@ A package containing a collection of useful Bash scripts for various tasks.
 
 
 %install
-mkdir -p %{buildroot}%{_bindir
+mkdir -p %{buildroot}%{_bindir}
 
 for script in *.sh; do
     dest_name=$(basename "$script" .sh)
