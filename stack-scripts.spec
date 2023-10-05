@@ -35,4 +35,5 @@ done
 
 
 %changelog
-# no changelog
+* Thu Aug 15 2019 Danila Vershinin <info@getpagespeed.com>
+- changelogs are not maintained
