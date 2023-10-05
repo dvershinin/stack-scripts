@@ -5,7 +5,7 @@ Summary:        A collection of useful Bash scripts
 
 License:        MIT
 URL:            https://github.com/dvershinin/stack-scripts
-Source0:        %{url}/stack-scripts/archive/v%{version}.tar.gz
+Source0:        %{url}/archive/v%{version}.tar.gz
 
 BuildArch:      noarch
 
