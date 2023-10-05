@@ -38,15 +38,14 @@ while [ "$#" -gt 0 ]; do
 done
 
 # Remaining arguments is the command to run
-CMD="$1"
 
 if [ -n "$LOG_FILE" ]; then
   if [ "$APPEND" -eq 1 ]; then
     # shellcheck disable=SC2094
-    "$@" >> "$LOG_FILE" 2> >(tee -a "$LOG_FILE" >&2)
+    eval "$@" >> "$LOG_FILE" 2> >(tee -a "$LOG_FILE" >&2)
   else
     # shellcheck disable=SC2094
-    "$@" > "$LOG_FILE" 2> >(tee "$LOG_FILE" >&2)
+    eval "$@" > "$LOG_FILE" 2> >(tee "$LOG_FILE" >&2)
   fi
   # Check if log file size exceeds MAX_SIZE and truncate if necessary
   if [ "$MAX_SIZE" -gt 0 ] && [ -f "$LOG_FILE" ]; then
@@ -60,5 +59,6 @@ if [ -n "$LOG_FILE" ]; then
     fi
   fi
 else
-  "$@" 2>&1 >/dev/null
+  # shellcheck disable=SC2069
+  eval "$@" 2>&1 >/dev/null
 fi
